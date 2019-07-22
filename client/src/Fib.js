@@ -9,6 +9,7 @@ class Fib extends Component {
   };
 
   componentDidMount() {
+    console.log('initializing...');
     this.fetchValues();
     this.fetchIndexes();
   }
@@ -20,6 +21,7 @@ class Fib extends Component {
       return;
     }
     this.setState({ values: values.data });
+    console.log('values set...');
   }
 
   async fetchIndexes() {
@@ -31,6 +33,7 @@ class Fib extends Component {
     this.setState({
       seenIndexes: seenIndexes.data
     });
+    console.log('indexes set...');
   }
 
   handleSubmit = async event => {
