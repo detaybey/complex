@@ -15,13 +15,19 @@ class Fib extends Component {
 
   async fetchValues() {
     const values = await axios.get('/api/values/current');
-    if(!seenIndexes) return;
+    if(!values){
+      console.log('no values found, exiting.');
+      return;
+    }
     this.setState({ values: values.data });
   }
 
   async fetchIndexes() {
     const seenIndexes = await axios.get('/api/values/all');
-    if(!seenIndexes) return;
+    if(!seenIndexes){ 
+      console.log('no indexes found, exiting.');
+      return;
+    }
     this.setState({
       seenIndexes: seenIndexes.data
     });
